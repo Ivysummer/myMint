@@ -1,8 +1,13 @@
 <template>
-  <div class="hello">
-      <mt-button type="default">default</mt-button>
-      <mt-button type="primary">primary</mt-button>
-      <mt-button type="danger" @click="toast(1,2)">danger</mt-button>
+  <div class="index">
+      <div class="btn">
+          <mt-button type="default">default</mt-button>
+          <mt-button type="primary">primary</mt-button>
+          <mt-button type="danger" @click="toast(1,2)">danger</mt-button>
+      </div>
+      <div>
+          <mt-search :value.sync="value" cancel-text="取消" placeholder="疾病/医院/科室/医生等"></mt-search>
+      </div>
   </div>
 </template>
 
@@ -10,7 +15,7 @@
 
 import { Toast } from 'mint-ui';
 export default {
-  name: 'hello',
+  name: 'index',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
