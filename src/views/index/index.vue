@@ -46,21 +46,21 @@
 						<p>资讯</p>
 						<div class="msg-tab">
 							<mt-navbar v-model="msgSelected">
-							  <mt-tab-item id="1">推荐</mt-tab-item>
-							  <mt-tab-item id="2">保健</mt-tab-item>
-							  <mt-tab-item id="3">饮食</mt-tab-item>
-							  <mt-tab-item id="4"><i class="fa fa-plus" aria-hidden="true"></i></mt-tab-item>
+							  <mt-tab-item id="recommend">推荐</mt-tab-item>
+							  <mt-tab-item id="health">保健</mt-tab-item>
+							  <mt-tab-item id="diet">饮食</mt-tab-item>
+							  <button><i class="fa fa-plus" aria-hidden="true"></i></button>
 							</mt-navbar>
 
 							<!-- tab-container -->
 							<mt-tab-container v-model="msgSelected">
-							  <mt-tab-container-item id="1">
+							  <mt-tab-container-item id="recommend">
 							    <mt-cell v-for="n in 10" :title="'content ' + n" />
 							  </mt-tab-container-item>
-							  <mt-tab-container-item id="2">
+							  <mt-tab-container-item id="health">
 							    <mt-cell v-for="n in 4" :title="'content ' + n" />
 							  </mt-tab-container-item>
-							  <mt-tab-container-item id="3">
+							  <mt-tab-container-item id="diet">
 							    <mt-cell v-for="n in 6" :title="'content ' + n" />
 							  </mt-tab-container-item>
 							</mt-tab-container>
@@ -217,7 +217,7 @@ import img6 from '../../assets/dangan.png'
     margin-left: 20px;
 }
 .mint-searchbar-inner{
-    border-radius: 10px;
+    border-radius: 20px;
 }
 .mint-searchbar-inner input{
     margin-left: 5px;	
@@ -259,6 +259,15 @@ li img{
     text-align: left;
     margin-left: 10px;
 }
+.mint-navbar button{
+	background-color: #fff;
+    border-width: 0;
+    border-color: #fff;
+    outline-color: #fff;
+}
+.msg-tab .mint-navbar > .mint-tab-item.is-selected{
+	color: #26a2ff;
+}
 /*尾部*/
 .footer{
 	color: #fff;
@@ -278,7 +287,7 @@ li img{
 .mint-tabbar{
 	position: fixed;
 }
-.mint-tabbar > .mint-tab-item.is-selected{
+.footer .mint-tabbar > .mint-tab-item.is-selected{
 	color: #3C3C3C;
 	text-decoration: none;
 }
