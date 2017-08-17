@@ -173,7 +173,7 @@ import img6 from '../../assets/dangan.png'
 .locate{
 	position: absolute;
 	top: 50%;
-	left: 5%;
+    left: 3%;
 }
 .mint-search{
 	height: 100%;
@@ -183,6 +183,7 @@ import img6 from '../../assets/dangan.png'
 .mint-searchbar{
     border-radius: 30px;
     background-color: #E0E0E0;
+    margin-left: 20px;
 }
 .mint-searchbar-inner{
     border-radius: 10px;
