@@ -49,19 +49,64 @@
 							  <mt-tab-item id="recommend">推荐</mt-tab-item>
 							  <mt-tab-item id="health">保健</mt-tab-item>
 							  <mt-tab-item id="diet">饮食</mt-tab-item>
+							  <mt-tab-item id="doctor">中医</mt-tab-item>
+							  <mt-tab-item id="old">老人</mt-tab-item>
 							  <button><i class="fa fa-plus" aria-hidden="true"></i></button>
 							</mt-navbar>
 
 							<!-- tab-container -->
 							<mt-tab-container v-model="msgSelected">
+							<!-- 推荐 -->
 							  <mt-tab-container-item id="recommend">
-							    <mt-cell v-for="n in 10" :title="'content ' + n" />
+							    <!-- <mt-cell v-for="n in 10" :title="'content ' + n" /> -->
+							    <ul class="recommendList">
+							    	<li v-for="item in recommendList">
+							    		<hgroup>
+							    			<p>{{ item.title }}</p>
+							    			<span>{{ item.conut }}赞</span>
+							    		</hgroup>
+							    		<section>
+							    			<img :src="item.image_url">
+							    		</section>
+							    		
+							    	</li>
+							    </ul>
 							  </mt-tab-container-item>
+							  <!-- 保健 -->
 							  <mt-tab-container-item id="health">
-							    <mt-cell v-for="n in 4" :title="'content ' + n" />
+							    <ul class="healthList">
+							    	<li v-for="item in healthList">
+							    		<hgroup>
+							    			<p>{{ item.title }}</p>
+							    			<span>{{ item.conut }}赞</span>
+							    		</hgroup>
+							    		<section>
+							    			<img :src="item.image_url">
+							    		</section>
+							    		
+							    	</li>
+							    </ul>
 							  </mt-tab-container-item>
+							  <!-- 饮食 -->
 							  <mt-tab-container-item id="diet">
-							    <mt-cell v-for="n in 6" :title="'content ' + n" />
+							    <ul class="dietList">
+							    	<li v-for="item in dietList">
+							    		<hgroup>
+							    			<p>{{ item.title }}</p>
+							    			<span>{{ item.conut }}赞</span>
+							    		</hgroup>
+							    		<section>
+							    			<img :src="item.image_url">
+							    		</section>
+							    		
+							    	</li>
+							    </ul>
+							  </mt-tab-container-item>
+							   <mt-tab-container-item id="doctor">
+							    <mt-cell v-for="n in 3" :title="'content ' + n" />
+							  </mt-tab-container-item>
+							   <mt-tab-container-item id="old">
+							    <mt-cell v-for="n in 8" :title="'content ' + n" />
 							  </mt-tab-container-item>
 							</mt-tab-container>
 						</div>
@@ -118,12 +163,31 @@
 </template>
 
 <script>
-import img1 from '../../assets/drguahao1.jpg' 
+// 相关服务
+import img1 from '../../assets/drguahao.jpg' 
 import img2 from '../../assets/guahao.png'
 import img3 from '../../assets/zhifu.png'
 import img4 from '../../assets/houzhen.jpg'
 import img5 from '../../assets/jiankangcard.jpg'
 import img6 from '../../assets/dangan.png'
+// 推荐列表
+import recomImg1 from '../../assets/recom1.jpg'
+import recomImg2 from '../../assets/recom2.jpg'
+import recomImg3 from '../../assets/recom3.jpg'
+import recomImg4 from '../../assets/recom4.jpg'
+// 保健列表
+import healthImg1 from '../../assets/health1.jpg'
+import healthImg2 from '../../assets/health2.jpg'
+import healthImg3 from '../../assets/health3.jpg'
+import healthImg4 from '../../assets/health4.jpg'
+import healthImg5 from '../../assets/health5.jpg'
+// 饮食列表
+import dietImg1 from '../../assets/diet1.jpg'
+import dietImg2 from '../../assets/diet2.jpg'
+import dietImg3 from '../../assets/diet3.jpg'
+import dietImg4 from '../../assets/diet4.jpg'
+import dietImg5 from '../../assets/diet5.jpg'
+
 	export default {
 		data(){
 			return{
@@ -170,6 +234,86 @@ import img6 from '../../assets/dangan.png'
 				selected: "就医",
 				//资讯
 				msgSelected: "1",
+				// 推荐列表
+				recommendList: [
+					{
+						title:"营养专家怎么'管不住嘴'？一道菜不超过三筷子",
+						conut:360,
+						image_url:recomImg1
+					},
+					{
+						title:"健康不是‘不生病’！中医眼中的健康标准有10个，看看你有多健康？",
+						conut:376,
+						image_url:recomImg2
+					},
+					{
+						title:"秋天这五种瓜超养人，错过要再等一年！",
+						conut:541,
+						image_url:recomImg3
+					},
+					{
+						title:"孕期出现问题怎么办？这些都是你要知道的",
+						conut:412,
+						image_url:recomImg4
+					}
+
+				],
+				//保健列表
+				healthList:[
+					{
+						title:"长时间玩手机眼睛疼怎么办？",
+						conut:350,
+						image_url:healthImg1
+					},
+					{
+						title:"水果蔬菜放冰箱保鲜？这些生活常识错误你中了几个？",
+						conut:346,
+						image_url:healthImg2
+					},
+					{
+						title:"流鼻血的时候头要向上仰还是举手呢？",
+						conut:312,
+						image_url:healthImg5
+					},
+					{
+						title:"被蚊子叮咬后千万别做这三件事",
+						conut:632,
+						image_url:healthImg3
+					},
+					{
+						title:"儿童睡眠不好怎么办？几招轻松搞定！",
+						conut:537,
+						image_url:healthImg4
+					},
+				],
+				//饮食列表
+				dietList:[
+					{
+						title:"吃货注意！盛夏吃鱼生吃进这条虫...",
+						conut:486,
+						image_url:dietImg1
+					},
+					{
+						title:"常吃蓝莓的这些好处你知道吗？",
+						conut:552,
+						image_url:dietImg2
+					},
+					{
+						title:"榴莲味道虽独特，但营养价值很高哦！",
+						conut:565,
+						image_url:dietImg3
+					},
+					{
+						title:"多吃4种菜，你比同龄人更容易长寿。餐桌上很常见！",
+						conut:533,
+						image_url:dietImg4
+					},
+					{
+						title:"不能让味精变'害人精',用的时候别犯4个错！",
+						conut:518,
+						image_url:dietImg5
+					}
+				]
 
 			}
 		},
@@ -206,6 +350,10 @@ import img6 from '../../assets/dangan.png'
 	display: inline-block;
 	top: 50%;
     left: 3%;
+    font-size: 0.9rem;
+}
+.mint-searchbar-cancel{
+	font-size: 0.8rem;
 }
 .mint-search{
 	height: 100%;
@@ -228,13 +376,13 @@ import img6 from '../../assets/dangan.png'
 }
 .swipe_bar{
 	position: relative;
-	width: 100%;
-	height: 200px;
-	margin-bottom: 40px;
+    width: 100%;
+    height: 10rem;
+    margin-bottom: .3rem;
 }
 .swipe_bar img{
-	width: 400px;
-	height: 200px;
+	width: 24rem;
+    height: 10rem;
 }
 ul.service_nav{
 	margin: 0;
@@ -242,57 +390,128 @@ ul.service_nav{
 	list-style: none;
 	width: 100%;
 	overflow: hidden;
-	
+	font-size: 0.5rem;
 }
 li{
 	float: left;
-	width: 33%;
-	margin-bottom: 20px;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    padding: .4rem 0;
 }
 li img{
-	width: 60px;
-    height: 60px;
+	width: 3.2rem;
+    height: 3.2rem;
     border-radius: 50%;
     border: 1px solid #fff;
+    margin-bottom: .3rem;
 }
-.news p {
+/*资讯*/
+.news > p {
     text-align: left;
-    margin-left: 10px;
+    margin-left: .8rem;
+    margin: .5rem auto;
+    font-size: 1.0rem;
+}
+.mint-navbar{
+	border-bottom: 1px solid #e1e1e1;
 }
 .mint-navbar button{
 	background-color: #fff;
     border-width: 0;
     border-color: #fff;
     outline-color: #fff;
+    color:#2894FF;
 }
 .msg-tab .mint-navbar > .mint-tab-item.is-selected{
 	color: #26a2ff;
 }
+/*推荐*/
+ ul.recommendList {
+    background-color: #fff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul.recommendList li{
+	width: 100%;
+	border-bottom: 1px solid #e1e1e1;
+}
+hgroup{
+    text-align: left;
+    width: 70%;
+}
+hgroup p{
+    font-size: .9rem;
+    color: #272727;
+    font-weight: 600;
+    font-family: inherit;
+    margin: 5px 0;
+}
+hgroup span{
+	font-size: .2rem;
+}
+section{
+    margin-left: 2rem;
+
+}
+section img {
+    width: 4.2rem;
+    height: 3.5rem;
+    border-radius: 30%;
+}
+/*保健*/
+ ul.healthList {
+    background-color: #fff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul.healthList li{
+	width: 100%;
+	border-bottom: 1px solid #e1e1e1;
+}
+ul.healthList li section img {
+    width: 4.2rem;
+    height: 3.5rem;
+    border-radius: 0;
+}
+/*饮食*/
+ul.dietList {
+    background-color: #fff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul.dietList li{
+	width: 100%;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+
 /*尾部*/
 .footer{
 	color: #fff;
-	margin-top: 10px;
-	display: fixed;
+    margin-top: .9rem;
+    position: relative;
 }
-.footer i{
-	display: block;
-    margin-bottom: 15px;
-    font-size: 24px;
-
-}
-/*.footer span{
-
-
-}*/
 .mint-tabbar{
 	position: fixed;
 }
+.footer i{
+	display: block;
+    margin-bottom: .9rem;
+    font-size: 1.3rem;
+
+}
+/*.footer span{
+}*/
 .footer .mint-tabbar > .mint-tab-item.is-selected{
 	color: #3C3C3C;
 	text-decoration: none;
 }
 
-.mint-tab-item-label{
+.footer .mint-tab-item-label{
 	color: #3C3C3C;
 }	
 
