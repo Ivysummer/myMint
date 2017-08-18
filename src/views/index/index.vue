@@ -75,14 +75,26 @@
 							  <!-- 保健 -->
 							  <mt-tab-container-item id="health">
 							    <ul class="healthList">
-							    	<li v-for="item in healthList">
-							    		<hgroup>
-							    			<p>{{ item.title }}</p>
-							    			<span>{{ item.conut }}赞</span>
-							    		</hgroup>
-							    		<section>
-							    			<img :src="item.image_url">
-							    		</section>
+							    	<li v-for="(item,index) in healthList">
+							    		<div class="healthSpecial" v-if="index==0">
+							    			<hgroup>
+							    				<p>{{ item.title }}</p>
+							    				<img :src="item.image_url">
+							    				
+							    			</hgroup>
+							    			<section>
+							    				<span>{{ item.conut }}赞</span>
+							    			</section>
+							    		</div>
+							    		<div else>
+							    			<hgroup>
+							    				<p>{{ item.title }}</p>
+							    				<span>{{ item.conut }}赞</span>
+							    			</hgroup>
+							    			<section>
+							    				<img :src="item.image_url">
+							    			</section>
+							    		</div>
 							    		
 							    	</li>
 							    </ul>
@@ -476,6 +488,8 @@ ul.healthList li section img {
     height: 3.5rem;
     border-radius: 0;
 }
+/*第一张图片样式*/
+ul.healthList li
 /*饮食*/
 ul.dietList {
     background-color: #fff;
