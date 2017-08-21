@@ -8,6 +8,11 @@ import Home from './../components/index'
 Vue.use(Router)
 
 import Index from '@/views/index/index'
+import Seek from '@/views/seek/seek'
+import Health from '@/views/health/health'
+import Help from '@/views/help/help'
+import Mine from '@/views/mine/mine'
+
 
 export default new Router({
   routes: [
@@ -27,12 +32,27 @@ export default new Router({
       component:App,
       children:[
           {
-            path:'',
+            path:'/',
             redirect:'/index'
           },
           {
             path:'/index',
             component:Index
+          },
+           {
+            path:'/seek',
+            component:Seek
+          },
+          {
+            path:'/health',
+            component:Health
+          },
+          {
+            path:'/help',
+            component:Help
+          },{
+            path:'/mine',
+            component:Mine
           }
 
       ]

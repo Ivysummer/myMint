@@ -9,6 +9,9 @@ import ElementUI from 'element-ui'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+// 引入高清适配方案
+import './config/rem.js'
+
 Vue.use(MintUI)
 Vue.use(ElementUI)
 
