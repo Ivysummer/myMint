@@ -9,141 +9,220 @@
 		
 		  <!-- tabcontainer -->  
 		    <mt-tab-container class="page-tabbar-container" v-model="selected">  
-		    <!-- 就医 -->
-		      <mt-tab-container-item id="就医">  
-		        <!-- <mt-cell v-for="n in 10" :title="'餐厅 ' + n" />  --> 
-				<div class="headSearch">
-					<div class="locate">
-						<span>广州</span>
-						<i class="fa fa-angle-down" aria-hidden="true"></i>
+		      <!-- 就医 -->
+		      	<mt-tab-container-item id="就医">  
+					<div class="headSearch">
+						<div class="locate">
+							<span>广州</span>
+							<i class="fa fa-angle-down" aria-hidden="true"></i>
+						</div>
+						<mt-search :value.sync="value" cancel-text="取消" placeholder="疾病/医院/科室/医生等">
+						</mt-search>					
 					</div>
-					<mt-search :value.sync="value" cancel-text="取消" placeholder="疾病/医院/科室/医生等">
-					</mt-search>
-					
-				</div>
 
-				<div class="con">
-				    <!-- 轮播图 -->
-					<div class="swipe_bar">
-						<mt-swipe :auto="4000">
-						  <mt-swipe-item><img src="../../assets/swipe1.jpg"></mt-swipe-item>
-						  <mt-swipe-item><img src="../../assets/swipe2.jpg"></mt-swipe-item>
-						  <mt-swipe-item><img src="../../assets/swipe3.jpg"></mt-swipe-item>
-						</mt-swipe>
-					</div>
-					<!-- 相关服务 -->
-			    	<ul class="service_nav">
-			    		<li v-for="item in serListsTypes">
-			    			<figure>
-			    				<img :src="item.image_url">
-			    				<figcaption>{{ item.title }}</figcaption>
-			    			</figure>
-			    			
-			    		</li>
-			    	</ul>
-			    	<!-- 资讯 -->
-					<div class="news">
-						<p>资讯</p>
-						<div class="msg-tab">
-							<mt-navbar v-model="msgSelected">
-							  <mt-tab-item id="recommend">推荐</mt-tab-item>
-							  <mt-tab-item id="health">保健</mt-tab-item>
-							  <mt-tab-item id="diet">饮食</mt-tab-item>
-							  <mt-tab-item id="doctor">中医</mt-tab-item>
-							  <mt-tab-item id="old">老人</mt-tab-item>
-							  <button><i class="fa fa-plus" aria-hidden="true"></i></button>
-							</mt-navbar>
+					<div class="con">
+					    <!-- 轮播图 -->
+						<div class="swipe_bar">
+							<mt-swipe :auto="4000">
+							  <mt-swipe-item><img src="../../assets/swipe1.jpg"></mt-swipe-item>
+							  <mt-swipe-item><img src="../../assets/swipe2.jpg"></mt-swipe-item>
+							  <mt-swipe-item><img src="../../assets/swipe3.jpg"></mt-swipe-item>
+							</mt-swipe>
+						</div>
+						<!-- 相关服务 -->
+				    	<ul class="service_nav">
+				    		<li v-for="item in serListsTypes">
+				    			<figure>
+				    				<img :src="item.image_url">
+				    				<figcaption>{{ item.title }}</figcaption>
+				    			</figure>
+				    			
+				    		</li>
+				    	</ul>
+				    	<!-- 资讯 -->
+						<div class="news">
+							<p>资讯</p>
+							<div class="msg-tab">
+								<mt-navbar v-model="msgSelected">
+								  <mt-tab-item id="recommend">推荐</mt-tab-item>
+								  <mt-tab-item id="health">保健</mt-tab-item>
+								  <mt-tab-item id="diet">饮食</mt-tab-item>
+								  <mt-tab-item id="doctor">中医</mt-tab-item>
+								  <mt-tab-item id="old">老人</mt-tab-item>
+								  <button><i class="fa fa-plus" aria-hidden="true"></i></button>
+								</mt-navbar>
 
-							<!-- tab-container -->
-							<mt-tab-container v-model="msgSelected">
-							<!-- 推荐 -->
-							  <mt-tab-container-item id="recommend">
-							    <!-- <mt-cell v-for="n in 10" :title="'content ' + n" /> -->
-							    <ul class="recommendList">
-							    	<li v-for="item in recommendList">
-							    		<hgroup>
-							    			<p>{{ item.title }}</p>
-							    			<span>{{ item.conut }}赞</span>
-							    		</hgroup>
-							    		<section>
-							    			<img :src="item.image_url">
-							    		</section>
-							    		
-							    	</li>
-							    </ul>
-							  </mt-tab-container-item>
-							  <!-- 保健 -->
-							  <mt-tab-container-item id="health">
-							    <ul class="healthList">
-							    	<li v-for="(item,index) in healthList">
-							    		<div class="healthSpecial" v-if="index==0">
-							    			<hgroup>
-							    				<p>{{ item.title }}</p>
-							    				<img :src="item.image_url">
-							    				
-							    			</hgroup>
-							    			<section>
-							    				<span>{{ item.conut }}赞</span>
-							    			</section>
-							    		</div>
-							    		<div else>
-							    			<hgroup>
-							    				<p>{{ item.title }}</p>
-							    				<span>{{ item.conut }}赞</span>
-							    			</hgroup>
-							    			<section>
-							    				<img :src="item.image_url">
-							    			</section>
-							    		</div>
-							    		
-							    	</li>
-							    </ul>
-							  </mt-tab-container-item>
-							  <!-- 饮食 -->
-							  <mt-tab-container-item id="diet">
-							    <ul class="dietList">
-							    	<li v-for="item in dietList">
-							    		<hgroup>
-							    			<p>{{ item.title }}</p>
-							    			<span>{{ item.conut }}赞</span>
-							    		</hgroup>
-							    		<section>
-							    			<img :src="item.image_url">
-							    		</section>
-							    		
-							    	</li>
-							    </ul>
-							  </mt-tab-container-item>
-							   <mt-tab-container-item id="doctor">
-							    <mt-cell v-for="n in 3" :title="'content ' + n" />
-							  </mt-tab-container-item>
-							   <mt-tab-container-item id="old">
-							    <mt-cell v-for="n in 8" :title="'content ' + n" />
-							  </mt-tab-container-item>
-							</mt-tab-container>
+								<!-- tab-container -->
+								<mt-tab-container v-model="msgSelected">
+								<!-- 推荐 -->
+								  <mt-tab-container-item id="recommend">
+								    <!-- <mt-cell v-for="n in 10" :title="'content ' + n" /> -->
+								    <ul class="recommendList">
+								    	<li v-for="item in recommendList">
+								    		<hgroup>
+								    			<p>{{ item.title }}</p>
+								    			<span>{{ item.conut }}赞</span>
+								    		</hgroup>
+								    		<section>
+								    			<img :src="item.image_url">
+								    		</section>
+								    		
+								    	</li>
+								    </ul>
+								  </mt-tab-container-item>
+								  <!-- 保健 -->
+								  <mt-tab-container-item id="health">
+								    <ul class="healthList">
+								    	<li v-for="(item,index) in healthList">
+								    		<div class="healthSpecial" v-if="index==0 ||index == 3">
+								    			<hgroup>
+								    				<p> {{ item.title }} </p>
+								    				<img :src="item.image_url">	
+								    			</hgroup>
+								    			<section>
+								    				<span>{{ item.conut }}赞</span>
+								    			</section>
+								    		</div>
+								    		<div class="others" v-else>
+								    			<hgroup>
+								    				<p>{{ item.title }}</p>
+								    				<span>{{ item.conut }}赞</span>
+								    			</hgroup>
+								    			<section>
+								    				<img :src="item.image_url">
+								    			</section>
+								    		</div>
+								    		
+								    	</li>
+								    </ul>
+								  </mt-tab-container-item>
+								  <!-- 饮食 -->
+								  <mt-tab-container-item id="diet">
+								    <ul class="dietList">
+								    	<li v-for="item in dietList">
+								    		<hgroup>
+								    			<p>{{ item.title }}</p>
+								    			<span>{{ item.conut }}赞</span>
+								    		</hgroup>
+								    		<section>
+								    			<img :src="item.image_url">
+								    		</section>
+								    		
+								    	</li>
+								    </ul>
+								  </mt-tab-container-item>
+								  <!-- 中医 -->
+								   <mt-tab-container-item id="doctor">
+								    <ul class="doctorList">
+								    	<li v-for="(item,index) in doctorList">
+								    		<div class="doctorSpecial" v-if="index == 3">
+								    			<hgroup>
+								    				<p> {{ item.title }} </p>
+								    				<img :src="item.image_url">	
+								    			</hgroup>
+								    			<section>
+								    				<span>{{ item.conut }}赞</span>
+								    			</section>
+								    		</div>
+								    		<!-- 展示一列图片（未实现） -->
+								    		<!-- <div class="another" v-else-if="index == 1">
+								    			<hgroup>
+								    				<p> {{ item.title }} </p>
+								    				<div class="groupImg" v-for="arr in doctorList.arrayImg">
+								    					<img :src="item.arr.image_url">
+								    				</div>
+								    			</hgroup>
+								    			<section>
+								    				<span>{{ item.conut }}赞</span>
+								    			</section>
+								    		</div> -->
+								    		<div class="others" v-else>
+								    			<hgroup>
+								    				<p>{{ item.title }}</p>
+								    				<span>{{ item.conut }}赞</span>
+								    			</hgroup>
+								    			<section>
+								    				<img :src="item.image_url">
+								    			</section>
+								    		</div>
+								    		
+								    	</li>
+								    </ul>
+
+								  </mt-tab-container-item>
+								  <!-- 老人 -->
+								   <mt-tab-container-item id="old">
+								    <ul class="oldList">
+								    	<li v-for="(item,index) in oldList">
+								    		<div class="oldSpecial" v-if="index == 3 || index == 7">
+								    			<hgroup>
+								    				<p> {{ item.title }} </p>
+								    				<img :src="item.image_url">	
+								    			</hgroup>
+								    			<section>
+								    				<span>{{ item.conut }}赞</span>
+								    			</section>
+								    		</div>
+								    		<!-- 展示一列图片（未实现） -->
+								    		<!-- <div class="another" v-else-if="index == 1">
+								    			<hgroup>
+								    				<p> {{ item.title }} </p>
+								    				<div class="groupImg" v-for="arr in doctorList.arrayImg">
+								    					<img :src="item.arr.image_url">
+								    				</div>
+								    			</hgroup>
+								    			<section>
+								    				<span>{{ item.conut }}赞</span>
+								    			</section>
+								    		</div> -->
+								    		<div class="noImg" v-else-if="index == 2" >
+								    			<hgroup>
+								    				<p>{{ item.title }}</p>
+								    				
+								    			</hgroup>
+								    			<section>
+								    				<span>{{ item.conut }}赞</span>
+								    			</section>
+								    		</div>
+								    		<div class="others" v-else>
+								    			<hgroup>
+								    				<p>{{ item.title }}</p>
+								    				<span>{{ item.conut }}赞</span>
+								    			</hgroup>
+								    			<section>
+								    				<img :src="item.image_url">
+								    			</section>
+								    		</div>
+								    		
+								    	</li>
+								    </ul>
+
+								  </mt-tab-container-item>
+								</mt-tab-container>
+							</div>
 						</div>
 					</div>
-				</div>
-		      </mt-tab-container-item>  
-		       <!-- 健康 -->
-		      <mt-tab-container-item id="健康">  
-		        <mt-cell v-for="n in 5" :title="'订单 ' + n" />  
-		      </mt-tab-container-item> 
+		        </mt-tab-container-item>  
+		      <!-- 健康 -->
+		        <mt-tab-container-item id="健康">  
+		          	<mt-cell v-for="n in 5" :title="'订单 ' + n" />
+
+		        </mt-tab-container-item> 
 		       <!-- 互动 -->
-		      <mt-tab-container-item id="互动">  
-		        <mt-cell v-for="n in 7" :title="'发现 ' + n" />  
-		      </mt-tab-container-item>  
+			    <mt-tab-container-item id="互动">  
+			        <mt-cell v-for="n in 7" :title="'发现 ' + n" />  
+			    </mt-tab-container-item>  
 		      <!-- 我的 -->
-		      <mt-tab-container-item id="我的">  
-		        <div class="page-part">  
-		         <!-- cell -->  
-		          <mt-cell v-for="n in 12" :title="'我的 ' + n" />  
-		        </div>  
-		       <!--  <router-link to="/">  
-		         
-		          <mt-button type="danger" size="large">退出</mt-button>  
-		        </router-link>   -->
-		      </mt-tab-container-item>  
+			    <mt-tab-container-item id="我的">  
+			        <div class="page-part">  
+			         <!-- cell -->  
+			          <mt-cell v-for="n in 12" :title="'我的 ' + n" />  
+			        </div>  
+			       <!--  <router-link to="/">  
+			         
+			          <mt-button type="danger" size="large">退出</mt-button>  
+			        </router-link>   -->
+			    </mt-tab-container-item>  
 		    </mt-tab-container>  
 		  </div>
           <!-- 尾部 -->
@@ -154,8 +233,10 @@
 		  	    <span>就医</span>
 		  	  </mt-tab-item>
 		  	  <mt-tab-item id="健康">
-		  	    <i class="fa fa-heart-o" aria-hidden="true"></i>
-		  	    <span>健康</span>
+		  	   <!--  <router-link to="/health"> -->
+	  	    	<i class="fa fa-heart-o" aria-hidden="true"></i>
+	  	    	<span>健康</span>
+		  	   <!--  </router-link> -->
 		  	  </mt-tab-item>
 		  	  <mt-tab-item id="互动">
 		  	    <i class="fa fa-comments-o" aria-hidden="true"></i>
@@ -193,13 +274,29 @@ import healthImg2 from '../../assets/health2.jpg'
 import healthImg3 from '../../assets/health3.jpg'
 import healthImg4 from '../../assets/health4.jpg'
 import healthImg5 from '../../assets/health5.jpg'
+import healthImg6 from '../../assets/health5.jpg'
+
 // 饮食列表
 import dietImg1 from '../../assets/diet1.jpg'
 import dietImg2 from '../../assets/diet2.jpg'
 import dietImg3 from '../../assets/diet3.jpg'
 import dietImg4 from '../../assets/diet4.jpg'
 import dietImg5 from '../../assets/diet5.jpg'
+// 中医列表
+import doctorImg1 from '../../assets/doctor1.jpg'
+import doctorImg2 from '../../assets/doctor2.jpg'
+import doctorImg3 from '../../assets/doctor3.jpg'
+import doctorImg4 from '../../assets/doctor4.jpg'
+import doctorImg5 from '../../assets/doctor5.jpg'
+// 老人列表
+import oldImg1 from '../../assets/old1.jpg'
+import oldImg2 from '../../assets/old2.jpg'
+import oldImg3 from '../../assets/old3.jpg'
+import oldImg4 from '../../assets/old4.jpg'
+import oldImg5 from '../../assets/old5.jpg'
+import oldImg6 from '../../assets/old6.jpg'
 
+	const arrayImg = ["dietImg2","dietImg3","dietImg4"];
 	export default {
 		data(){
 			return{
@@ -245,7 +342,7 @@ import dietImg5 from '../../assets/diet5.jpg'
 				],
 				selected: "就医",
 				//资讯
-				msgSelected: "1",
+				msgSelected: "recommend",
 				// 推荐列表
 				recommendList: [
 					{
@@ -293,10 +390,25 @@ import dietImg5 from '../../assets/diet5.jpg'
 						image_url:healthImg3
 					},
 					{
+						title:"长时间玩手机眼睛疼怎么办？",
+						conut:350,
+						image_url:healthImg1
+					},
+					{
+						title:"水果蔬菜放冰箱保鲜？这些生活常识错误你中了几个？",
+						conut:346,
+						image_url:healthImg2
+					},
+					{
 						title:"儿童睡眠不好怎么办？几招轻松搞定！",
 						conut:537,
 						image_url:healthImg4
 					},
+					{
+						title:"半夜小腿抽筋不仅仅是缺钙啊...",
+						conut:322,
+						image_url:healthImg6
+					}
 				],
 				//饮食列表
 				dietList:[
@@ -325,7 +437,78 @@ import dietImg5 from '../../assets/diet5.jpg'
 						conut:518,
 						image_url:dietImg5
 					}
-				]
+				],
+				// 中医列表
+				doctorList:[
+					{
+						title:"用了20年的祛湿方：一粥一水",
+						conut:586,
+						image_url:doctorImg1
+					},
+					{
+						title:"中医：护好四根更长寿 ",
+						conut:552,
+						image_url:doctorImg2
+					},
+					{
+						title:"不开心也会引起感冒，这个你一定不知道",
+						conut:565,
+						image_url:doctorImg3
+					},
+					{
+						title:"中医补血就是治 ‘贫血’",
+						conut:533,
+						image_url:doctorImg4
+					},
+					{
+						title:"这些穴位对心脏好，越按越健康",
+						conut:518,
+						image_url:doctorImg5
+					}
+				],
+				//老人列表
+				oldList:[
+					{
+						title:"老年人腰疼怎么办？三招可自疗",
+						conut:457,
+						image_url:oldImg1
+					},
+					{
+						title:"老年痴呆不不止记忆力减退，爸妈出现这种症状要留意！",
+						conut:311,
+						image_url:oldImg2
+					},
+					{
+						title:"''三不'，'三坚持'收获身心健康",
+						conut:548,
+						
+					},
+					{
+						title:"老年人消化不好怎么办？",
+						conut:630,
+						image_url:oldImg3
+					},
+					{
+						title:"老人改善体质注意日常饮食",
+						conut:351,
+						image_url:oldImg4
+					},
+					{
+						title:"老年人睡眠质量不好怎么办？",
+						conut:396,
+						image_url:oldImg5
+					},
+					{
+						title:"这几种老人常见的用药坏习惯要避免",
+						conut:347,
+						image_url:oldImg1
+					},
+					{
+						title:"老年人提高免疫力可以多吃鸡肉鸡蛋",
+						conut:482,
+						image_url:oldImg6
+					}
+				],
 
 			}
 		},
@@ -488,8 +671,36 @@ ul.healthList li section img {
     height: 3.5rem;
     border-radius: 0;
 }
-/*第一张图片样式*/
-ul.healthList li
+.others{
+	display: inherit;
+    width: 100%;
+}
+/*保健 v-if 样式*/
+.healthSpecial{
+	width: 100%;
+    margin-bottom: 0.8rem;
+}
+.healthList .healthSpecial hgroup {
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.healthSpecial hgroup img {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+.healthSpecial section{
+	margin-left: 0;
+    overflow: hidden;
+    
+}
+.healthSpecial section span {
+    font-size: .2rem;
+    float: left;
+}
 /*饮食*/
 ul.dietList {
     background-color: #fff;
@@ -501,7 +712,168 @@ ul.dietList li{
 	width: 100%;
 	border-bottom: 1px solid #e1e1e1;
 }
+/*中医*/
+ ul.doctorList {
+    background-color: #fff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul.doctorList li{
+	width: 100%;
+	border-bottom: 1px solid #e1e1e1;
+}
+ul.doctorList li section img {
+    width: 4.2rem;
+    height: 3.5rem;
+    border-radius: 0;
+}
+.others{
+	display: inherit;
+    width: 100%;
+}
+/*中医 v-if 样式*/
+.doctorSpecial{
+	width: 100%;
+    margin-bottom: 0.8rem;
+}
+.doctorList .doctorSpecial hgroup {
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
 
+.doctorSpecial hgroup img {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+.doctorSpecial section{
+	margin-left: 0;
+    overflow: hidden;
+    
+}
+.doctorSpecial section span {
+    font-size: .2rem;
+    float: left;
+}
+
+/*中医 v-else-if 样式*/
+.another{
+	width: 100%;
+    margin-bottom: 0.8rem;
+}
+.doctorList .another hgroup {
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.another hgroup img {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+.another section{
+	margin-left: 0;
+    overflow: hidden;
+    
+}
+.another section span {
+    font-size: .2rem;
+    float: left;
+}
+/*老人*/
+ ul.oldList {
+    background-color: #fff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul.oldList li{
+	width: 100%;
+	border-bottom: 1px solid #e1e1e1;
+}
+ul.oldList li section img {
+    width: 4.2rem;
+    height: 3.5rem;
+    border-radius: 0;
+}
+.others{
+	display: inherit;
+    width: 100%;
+}
+/*老人 v-if 样式*/
+.oldSpecial{
+	width: 100%;
+    margin-bottom: 0.8rem;
+}
+.oldList .oldSpecial hgroup {
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.oldSpecial hgroup img {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+.oldSpecial section{
+	margin-left: 0;
+    overflow: hidden;
+    
+}
+.oldSpecial section span {
+    font-size: .2rem;
+    float: left;
+}
+/*老人 v-else-if 样式*/
+.another{
+	width: 100%;
+    margin-bottom: 0.8rem;
+}
+.oldList .another hgroup {
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.another hgroup img {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+.another section{
+	margin-left: 0;
+    overflow: hidden;
+    
+}
+.another section span {
+    font-size: .2rem;
+    float: left;
+}
+/*老人 v-else-if 样式*/
+.noImg{
+	width: 100%;
+    margin-bottom: 0.8rem;
+}
+.oldList .noImg hgroup {
+    margin-bottom: 2rem;
+}
+.noImg section{
+	margin: 0;
+    overflow: hidden;
+    
+}
+.noImg section span {
+    float: left;
+    font-size: .2rem;
+}
 
 /*尾部*/
 .footer{
