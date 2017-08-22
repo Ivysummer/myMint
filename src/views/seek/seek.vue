@@ -462,7 +462,7 @@ import oldImg6 from '../../assets/old6.jpg'
 	
 </script>
 
-<style>
+<style scoped>
 /*头部*/
 .headSearch{
 	position: relative;

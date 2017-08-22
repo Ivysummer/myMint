@@ -20,10 +20,24 @@
 		</div>
 		<!-- banner -->
 		<div class="mineBanner">
-			
+			<ul class="bar-con">
+				<li class="item1">
+					<span>0</span>
+					<p>参与话题</p>
+				</li>
+				<li>
+					<span>0</span>
+					<p>加入圈子</p>
+				</li>
+			</ul>
 		</div>
 		<!-- content -->
-		<div class="minecCon">
+		<div class="mineCon">
+			<ul class="list">
+				<li></li>
+
+			</ul>
+
 			
 		</div>
 	</div>
@@ -57,12 +71,15 @@
 <style scoped>
 /*Top*/
 .mineheadTop{
-	background-image: url(/static/img/mine-top.c29f8d9.jpg);
+	background-image: url("../../assets/mine-top.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
     height: 7.5rem;
     display: flex;
+    background-color: greenyellow;
+    margin-bottom: .8rem;
+    border-bottom: 1px solid #e1e1e1;
 }
 .touxiang{
 	width: 2.8rem;
@@ -114,5 +131,35 @@ ul li{
     font-size: 0.8rem;
 
 }
+/*Banner*/
+.mineBanner{
+    position: relative;
 
+}
+ul.bar-con{
+	display: flex;
+    padding: 0;
+}
+.bar-con li{
+	flex: 1;
+    width: 40%;
+    display: inline-block;
+    text-align: center;
+    border-bottom: 1px solid #e1e1e1;
+}
+.bar-con li.item1{
+	border-right: 1px solid #e1e1e1;/*添加中间分割线*/
+}
+/*content*/
+
+/*.itemCon{
+	border-bottom: 1px solid #e1e1e1;
+    padding: 0.9rem;
+    text-align: left;
+}
+.mineCon span{
+	padding-right: 1rem;
+    color: yellow;
+    font-size: .9rem;
+}*/
 </style>
