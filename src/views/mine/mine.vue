@@ -21,11 +21,11 @@
 		<!-- banner -->
 		<div class="mineBanner">
 			<ul class="bar-con">
-				<li class="item1">
+				<li class="item1 cutoff">
 					<span>0</span>
 					<p>参与话题</p>
 				</li>
-				<li>
+				<li class="item1">
 					<span>0</span>
 					<p>加入圈子</p>
 				</li>
@@ -34,7 +34,45 @@
 		<!-- content -->
 		<div class="mineCon">
 			<ul class="list">
-				<li></li>
+				<li>
+					<mt-cell title="预约记录" is-link>
+						<section slot="icon" class="fa fa-medkit" style="color:#707038;" src=""></section>
+					</mt-cell>
+					<mt-cell title="咨询记录" is-link>
+						<section slot="icon" class="fa fa-commenting-o" style="color:#0072E3;" src=""></section>
+					</mt-cell>
+					<mt-cell title="支付记录" is-link>
+						<section slot="icon" class="fa fa-usd" style="color:#C6A300;" src=""></section>
+					</mt-cell>
+				</li>
+				<div class="divider"></div>
+				<li>
+					<mt-cell title="就诊人管理" is-link>
+						<section slot="icon" class="fa fa-book" style="color:#0072E3;" src=""></section>
+					</mt-cell>
+					<mt-cell title="我的收藏" is-link>
+						<section slot="icon" class="fa fa-star-o" style="color:#C6A300;" src=""></section>
+					</mt-cell>
+					<!-- <mt-cell title="资讯推送" is-link>
+						<section slot="icon" class="fa fa-paper-plane" src=""></section>
+					</mt-cell> -->
+					<!-- <mt-switch name="资讯推送" :value.sync="value">
+						<section slot="icon" class="fa fa-paper-plane" src=""></section>
+					</mt-switch> -->
+					<mt-switch v-model="value" @change="turn">
+						<!-- <span>资讯推送</span> -->
+						<section slot="icon" class="fa fa-paper-plane" src=""></section>
+					</mt-switch>
+				</li>
+				<div class="divider"></div>
+				<li>
+					<mt-cell title="邀请注册" is-link>
+					  <section slot="icon" class="fa fa-share-alt-square" src=""></section>
+					</mt-cell>
+					<mt-cell title="更多" is-link>
+					  <section slot="icon" class="fa fa-ellipsis-h" src=""></section>
+					</mt-cell>
+				</li>
 
 			</ul>
 
@@ -50,7 +88,7 @@
 
 		data(){
 			return{
-				value:'',
+				value:false,
 				// 中间 服务列表
 				
 				selected: "我的",
@@ -61,14 +99,16 @@
 			}
 		},
 		methods:{
-
+				turn: function(){
+					console.log(this.value)
+				}
 		}
 
 	}
 	
 </script>
 
-<style scoped>
+<style>
 /*Top*/
 .mineheadTop{
 	background-image: url("../../assets/mine-top.jpg");
@@ -123,7 +163,7 @@ ul.goldIcon{
     margin-left: -46%;
 
 }
-ul li{
+ul.goldIcon li{
 	width: 38%;
     display: inline-block;
     padding-left: .1rem;
@@ -139,27 +179,66 @@ ul li{
 ul.bar-con{
 	display: flex;
     padding: 0;
+    margin:0;
 }
-.bar-con li{
+.bar-con li.item1{
 	flex: 1;
     width: 40%;
     display: inline-block;
     text-align: center;
-    border-bottom: 1px solid #e1e1e1;
+    /*border-bottom: 1px solid #e1e1e1;*/
 }
-.bar-con li.item1{
+.bar-con li.cutoff{
 	border-right: 1px solid #e1e1e1;/*添加中间分割线*/
 }
-/*content*/
+.item1 span{
 
-/*.itemCon{
-	border-bottom: 1px solid #e1e1e1;
-    padding: 0.9rem;
-    text-align: left;
 }
-.mineCon span{
+.item1 p{
+	margin: 0;
+	font-size: .8rem;
+
+}
+/*content*/
+.mineCon{
+	margin-top: -1rem;
+}
+ul.list{
+	display: block;
+	padding: 0;
+}
+.list li{
+	width: 100%;
+}
+.list li section{
 	padding-right: 1rem;
-    color: yellow;
+    color: #844200;
     font-size: .9rem;
-}*/
+
+}
+.divider{
+	margin-top: -5px;
+    border-bottom: 1px solid #e1e1e1;/*分割线*/
+}
+/*资讯推送*/
+label{
+	border-top: 1px solid #e1e1e1;
+    height: 2.4rem;
+    width: 100%;
+}
+.mint-switch-core{
+	position: absolute;
+    top: 22%;
+    left: 84%;
+    width: 39px;
+    height: 19px;
+}
+.mint-switch-core::before{
+	width: 17px;
+    height: 17px;
+}
+.mint-switch-core::after{
+	width: 17px;
+    height: 17px;
+}
 </style>

@@ -134,7 +134,7 @@ import Mine from './../mine/mine'
 	
 </script>
 
-<style scoped>
+<style>
 /*头部*/
 .page-tabbar {  
     overflow: hidden;  
