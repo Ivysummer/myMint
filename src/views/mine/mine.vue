@@ -59,18 +59,18 @@
 					<!-- <mt-switch name="资讯推送" :value.sync="value">
 						<section slot="icon" class="fa fa-paper-plane" src=""></section>
 					</mt-switch> -->
-					<mt-switch v-model="value" @change="turn">
-						<!-- <span>资讯推送</span> -->
-						<section slot="icon" class="fa fa-paper-plane" src=""></section>
+					<mt-switch v-model="value" @change="turn">	
+						<span class="pushNew"><i class="fa fa-paper-plane" style="color:#00DB00;" aria-hidden="true"></i>资讯推送</span>
+						<!-- <section slot="icon" class="fa fa-paper-plane" src=""></section> -->
 					</mt-switch>
 				</li>
 				<div class="divider"></div>
 				<li>
 					<mt-cell title="邀请注册" is-link>
-					  <section slot="icon" class="fa fa-share-alt-square" src=""></section>
+					  <section slot="icon" class="fa fa-share-alt-square" style="color:#C6A300;" src=""></section>
 					</mt-cell>
 					<mt-cell title="更多" is-link>
-					  <section slot="icon" class="fa fa-ellipsis-h" src=""></section>
+					  <section slot="icon" class="fa fa-ellipsis-h" style="color:#00DB00;" src=""></section>
 					</mt-cell>
 				</li>
 
@@ -202,6 +202,7 @@ ul.bar-con{
 /*content*/
 .mineCon{
 	margin-top: -1rem;
+	text-align: left;
 }
 ul.list{
 	display: block;
@@ -214,7 +215,8 @@ ul.list{
 	padding-right: 1rem;
     color: #844200;
     font-size: .9rem;
-
+	width: .8rem;
+    height: .8rem;
 }
 .divider{
 	margin-top: -5px;
@@ -241,4 +243,11 @@ label{
 	width: 17px;
     height: 17px;
 }
+.pushNew{
+    font-size: .8rem;
+}
+.pushNew i{
+	padding-right: 1.1rem;
+}
+
 </style>
